@@ -9,10 +9,9 @@ const client = new irc.Client("brockman.news", "web-listener", {
   channels: ["#all"],
 });
 
-// Serve static files from ./public
 app.use(async (ctx) => {
   await send(ctx, ctx.request.url.pathname, {
-    root: `${Deno.cwd()}/public`,
+    root: `${Deno.cwd()}`,
     index: "index.html",
   });
 });
